@@ -1,8 +1,10 @@
-import Header from "../../components/Concept/Header"
+import ConceptHead from "./ConceptHead"
 import keyConceptsImage from '../../assets/images/key-concepts.png';
 import componentsImage from '../../assets/images/components.png';
 import stateImage from '../../assets/images/state.png';
 import eventsImage from '../../assets/images/events.png';
+
+import './Concept.css'
 
 
 const concepts = [
@@ -28,8 +30,8 @@ const concepts = [
 
 function Concept(){
     return (  
-        <div>
-            <Header image={keyConceptsImage}></Header>
+        <div className="background-col">
+            <ConceptHead image={keyConceptsImage}></ConceptHead>
             <ul id="concepts">
                 {
                     concepts.map((item,idx)=>{

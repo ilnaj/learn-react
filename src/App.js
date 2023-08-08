@@ -1,58 +1,19 @@
-import React,{useState} from 'react';
-// import Concept from "./components/Concept/Concept";
-// import Expense from './components/Expenses/Expense';
-
-import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
-import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
+import React, { useState } from 'react';
+import Content from './components/Header/Content';
+import Menu from './components/Header/Menu'
+import './App.css'
 
 function App() {
-  const [courseGoals, setCourseGoals] = useState([
-    { text: 'Do all exercises!', id: 'g1' },
-    { text: 'Finish the course!', id: 'g2' }
-  ]);
+      const [idMenu, setIdMenu] = useState('expense');
 
-  const addGoalHandler = enteredText => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      return updatedGoals;
-    });
-  };
-
-  const deleteItemHandler = goalId => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
-      return updatedGoals;
-    });
-  };
-
-  let content = (
-    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-  );
-
-  if (courseGoals.length > 0) {
-    content = (
-      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
-    );
-  }
+      function clickMenuHandler(id) {
+        setIdMenu(id);
+      }
 
   return (
-    // <Expense></Expense>
-    //  <Concept></Concept>
     <div>
-      <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
-        {content}
-        {/* {courseGoals.length > 0 && (
-          <CourseGoalList
-            items={courseGoals}
-            onDeleteItem={deleteItemHandler}
-          />
-        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-        } */}
-      </section>
+      <Menu onClickMenu={clickMenuHandler} activeMenu={idMenu}></Menu>
+      <Content idMenu={idMenu}></Content>
     </div>
   );
 }

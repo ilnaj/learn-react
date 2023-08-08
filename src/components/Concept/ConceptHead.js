@@ -1,4 +1,4 @@
-function Header(props){
+function ConceptHead(props){
     return (
         <header>
             <img src={props.image} alt="Medal badge with a star" />
@@ -8,4 +8,4 @@ function Header(props){
     )
 }
 
-export default Header
+export default ConceptHead
