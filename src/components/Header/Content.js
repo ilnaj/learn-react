@@ -1,6 +1,7 @@
 import Concept from "../Concept/Concept";
 import Expense from '../Expenses/Expense';
 import CourseGoal from '../CourseGoals/CourseGoals';
+import Calculator from "../Calculator/Calculator";
 
 function Content(props) {
       let content = '';
@@ -10,6 +11,8 @@ function Content(props) {
         content = <Concept/>;
       }else if(props.idMenu==='course-goal'){
         content = <CourseGoal/>;
+      }else if(props.idMenu==='calculator'){
+        content = <Calculator/>;
       }else{
         content = <div>Menu Not Found</div>
       }

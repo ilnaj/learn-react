@@ -5,6 +5,7 @@ function Menu(props) {
     { id: "expense", title: "01" },
     { id: "concept", title: "02" },
     { id: "course-goal", title: "03" },
+    { id: "calculator", title: "04" },
   ];
 
   function menuHandler(id) {
